@@ -6,13 +6,14 @@ import os
 
 # ===== CONFIGURATION =====
 SNOWFLAKE_CONFIG = {
-    "account": "YOUR_ACCOUNT.region",
-    "user": "YOUR_USERNAME",
-    "password": "YOUR_PASSWORD",
-    "warehouse": "YOUR_WAREHOUSE",
-    "database": "FILE_UPLOAD",
-    "schema": "PUBLIC"
+    "account": os.getenv("SNOWFLAKE_ACCOUNT"),
+    "user": os.getenv("SNOWFLAKE_USER"),
+    "password": os.getenv("SNOWFLAKE_PASSWORD"),
+    "warehouse": os.getenv("SNOWFLAKE_WAREHOUSE"),
+    "database": os.getenv("SNOWFLAKE_DATABASE"),
+    "schema": os.getenv("SNOWFLAKE_SCHEMA")
 }
+
 
 def upload_to_stage(session, original_filename, df):
     """Uploads CSV with original filename"""
